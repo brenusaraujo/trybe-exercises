@@ -50,3 +50,9 @@ if (oddCounter > 0) {
 let minimum = Math.min(...numbers); //https://www.delftstack.com/howto/javascript/javascript-max-of-array/
 
 console.log(minimum); //questão 7
+
+let questionEight = [];
+for (index = 1; index < 26; index += 1) {
+    questionEight.push(index);
+}
+console.log(questionEight);

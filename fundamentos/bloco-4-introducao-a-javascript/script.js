@@ -45,4 +45,8 @@ if (oddCounter > 0) {
     console.log(oddCounter);
 } else {
     console.log('nenhum valor ímpar encontrado');
+} //questão 6
+
+for (index = 0) {
+
 }

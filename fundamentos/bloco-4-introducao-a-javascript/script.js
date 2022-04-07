@@ -32,3 +32,17 @@ for (let index = 1; index < numbers.length; index++) {
     }
 }
 console.log(numbers[numbers.length - 1]); //questão 5;
+
+let oddCounter = 0;
+
+for (i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 != 0) {
+        oddCounter = oddCounter + 1;
+    }
+
+}
+if (oddCounter > 0) {
+    console.log(oddCounter);
+} else {
+    console.log('nenhum valor ímpar encontrado');
+}

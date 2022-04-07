@@ -56,3 +56,9 @@ for (index = 1; index < 26; index += 1) {
     questionEight.push(index);
 }
 console.log(questionEight);
+
+let divByTwo;
+for (index = 0; index < questionEight.length; index += 1) {
+    divByTwo = questionEight[index] / 2;
+    console.log(divByTwo);
+}

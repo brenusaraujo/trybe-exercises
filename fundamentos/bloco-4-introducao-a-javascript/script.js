@@ -19,3 +19,16 @@ if (aux > 20) {
 } else {
     console.log('valor menor que 20');
 } //questao 4
+
+let maxValue = 0;
+
+for (let index = 1; index < numbers.length; index++) {
+    for (let secondIndex = 0; secondIndex < index; secondIndex++) {
+        if (numbers[index] < numbers[secondIndex]) {
+            let position = numbers[index];
+            numbers[index] = numbers[secondIndex];
+            numbers[secondIndex] = position;
+        }
+    }
+}
+console.log(numbers[numbers.length - 1]); //questão 5;

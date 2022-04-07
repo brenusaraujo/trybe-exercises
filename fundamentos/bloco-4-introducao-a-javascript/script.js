@@ -10,4 +10,12 @@ for (i = 0; i < numbers.length; i++) {
 }
 console.log(sum); //questao 2
 
-console.log(sum / numbers.length); //questao 3
+let aux = sum / numbers.length;
+
+console.log(aux); //questao 3
+
+if (aux > 20) {
+    console.log('valor maior que 20.');
+} else {
+    console.log('valor menor que 20');
+} //questao 4

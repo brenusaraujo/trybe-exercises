@@ -47,6 +47,6 @@ if (oddCounter > 0) {
     console.log('nenhum valor ímpar encontrado');
 } //questão 6
 
-for (index = 0) {
+let minimum = Math.min(...numbers); //https://www.delftstack.com/howto/javascript/javascript-max-of-array/
 
-}
+console.log(minimum); //questão 7

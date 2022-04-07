@@ -2,7 +2,7 @@ const angleOne = 45;
 const angleTwo = 30;
 const angleThree = 105;
 
-if (angleOne || angleTwo || angleThree < 0) {
+if (angleOne || angleTwo || angleThree <= 0) {
     console.log('there is an invalid angle.');
 }
 

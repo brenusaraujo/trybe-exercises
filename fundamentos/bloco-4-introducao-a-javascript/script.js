@@ -46,3 +46,17 @@ function indexBigger(numeros) {
 }
 
 console.log(indexBigger(numeros));
+
+function indexSmaller(numeros) {
+    let compara = 0;
+    let indiceDoMenor = 0
+    for (let index = 0; index < numeros.length; index += 1) {
+        if (numeros[index] < compara) {
+            compara = numeros[index];
+            indiceDoMenor = index;
+        }
+    }
+    return indiceDoMenor;
+}
+
+console.log(indexSmaller(numeros));

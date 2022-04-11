@@ -17,3 +17,16 @@ for (let key in info) {
 for (let key in info) {
     console.log(info[key])
 }
+
+
+function verificaPalindrome(string) {
+    let lowerCaseStr = string.toLowerCase();
+    let reverseStr = lowerCaseStr.split('').reverse().join('');
+    if (reverseStr === lowerCaseStr) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(verificaPalindrome('desenvolvimento'))

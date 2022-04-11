@@ -29,4 +29,20 @@ function verificaPalindrome(string) {
     }
 }
 
-console.log(verificaPalindrome('desenvolvimento'))
+console.log(verificaPalindrome('desenvolvimento'));
+
+let numeros = [2, 4, 6, 7, 10, 1, -3];
+
+function indexBigger(numeros) {
+    let compara = 0;
+    let indiceDoMaior = 0
+    for (let index = 0; index < numeros.length; index += 1) {
+        if (numeros[index] > compara) {
+            compara = numeros[index];
+            indiceDoMaior = index;
+        }
+    }
+    return indiceDoMaior;
+}
+
+console.log(indexBigger(numeros));

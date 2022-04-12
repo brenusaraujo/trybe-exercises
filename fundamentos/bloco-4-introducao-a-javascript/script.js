@@ -65,13 +65,15 @@ names = ['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana'];
 
 
 function biggerWord(names) {
-    let compara = 0;
-    let indiceDoMenor = 0
-    for (let index = 0; index < numeros.length; index += 1) {
-        if (numeros[index] < compara) {
-            compara = numeros[index];
-            indiceDoMenor = index;
+    let indiceDoMaior = 0
+    let aux = 0;
+    for (let index = 0; index < names.length; index += 1) {
+        if (aux < names[index].length) {
+            aux = names[index].length;
+            indiceDoMaior = index;
         }
     }
-    return indiceDoMenor;
+    return names[indiceDoMaior];
 }
+
+console.log(biggerWord(names))

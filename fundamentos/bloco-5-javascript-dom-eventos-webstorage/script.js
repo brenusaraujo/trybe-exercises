@@ -13,3 +13,11 @@ let siblingTest = document.createElement("p");
 siblingTest.innerHTML = "Breno araújo de matos";
 
 sibling.appendChild(siblingTest);
+
+let child1 = document.querySelector('#primeiroFilhoDoFilho');
+
+let childTest = document.createElement("p");
+
+childTest.innerHTML = "breno breno breno";
+
+child1.appendChild(childTest);

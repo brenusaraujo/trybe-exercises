@@ -1,0 +1,1 @@
+document.getElementById('elementoOndeVoceEsta').parentNode.style.color = 'blue'

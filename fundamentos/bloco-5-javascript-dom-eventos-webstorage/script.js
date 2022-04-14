@@ -18,6 +18,16 @@ let child1 = document.querySelector('#primeiroFilhoDoFilho');
 
 let childTest = document.createElement("p");
 
+childTest.setAttribute('id', 'idTeste');
+
 childTest.innerHTML = "breno breno breno";
 
 child1.appendChild(childTest);
+
+document.getElementById('idTeste').parentNode.parentNode.nextElementSibling;
+
+// let remove = document.getElementById('pai');
+
+// if (remove.hasChildNodes()) {
+//     remove.removeChild(remove.firstElementChild);
+// }

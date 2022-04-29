@@ -15,35 +15,37 @@
     </header>
 
     <form>
-        <label for="fname">Nome completo:</label>
-        <input type="text" id="fname" maxlength="40" minlength="10">
-        <br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" maxlength="50" minlength="10">
-        <br>
-        <label>Selecione o seu destino favorito:</label>
-        <br>
-        <label><input id="349" type="radio" value="1" name="question1">Montanhas</label>
-        <label><input id="350" type="radio" value="2" name="question1">Praias</label>
-        <label><input id="351" type="radio" value="3" name="question1">Campo</label>
-        <label><input id="352" type="radio" value="4" name="question1">Cidade</label>
-        <br>
-        <label for="about"> Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?</label>
-        <br>
-        <textarea name="aboutme" id="aboutme" cols="30" rows="10" maxlength="500"></textarea>
-        <br>
-        <label for="date">Qual a melhor data para realizar a sua viagem?</label>
-        <br>
-        <input type="date" value="2023-01-01">
-        <br>
-        <label for="receive">Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?</label>
-        <input type="checkbox" name="receive" id="receive">
-        <br>
-        <label for="agreed">Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.</label>
-        <input type="checkbox" name="agree" id="agree">
-        <br>
-        <button type="submit" id="button">Enviar</button>
-        <input type="reset" value="Limpar">
+        <div class="container-fluid">
+            <label for="fname">Nome completo:</label>
+            <input type="text" id="fname" maxlength="40" minlength="10">
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" maxlength="50" minlength="10">
+            <br>
+            <label>Selecione o seu destino favorito:</label>
+            <br>
+            <label><input id="349" type="radio" value="1" name="question1">Montanhas</label>
+            <label><input id="350" type="radio" value="2" name="question1">Praias</label>
+            <label><input id="351" type="radio" value="3" name="question1">Campo</label>
+            <label><input id="352" type="radio" value="4" name="question1">Cidade</label>
+            <br>
+            <label for="about"> Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?</label>
+            <br>
+            <textarea name="aboutme" id="aboutme" cols="30" rows="10" maxlength="500"></textarea>
+            <br>
+            <label for="date">Qual a melhor data para realizar a sua viagem?</label>
+            <br>
+            <input type="date" value="2023-01-01">
+            <br>
+            <label for="receive">Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?</label>
+            <input type="checkbox" name="receive" id="receive">
+            <br>
+            <label for="agreed">Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.</label>
+            <input type="checkbox" name="agree" id="agree">
+            <br>
+            <button type="submit" id="button">Enviar</button>
+            <input type="reset" value="Limpar">
+        </div>
     </form>
 </body>
 <script src="script.js"></script>

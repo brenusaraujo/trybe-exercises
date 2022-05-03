@@ -22,6 +22,9 @@ body {
 
 .menu-container {
     display: flex;
+    flex-basis: 500px;
+    flex-grow: 1;
+    align-self: center;
 }
 
 .menu-container ul {
@@ -36,4 +39,12 @@ body {
     font-size: 1.3rem;
     list-style: none;
     margin-right: 10px;
+}
+
+.header-container .menu-container {
+    order: 2;
+}
+
+.header-container .logo-container {
+    order: 1;
 }

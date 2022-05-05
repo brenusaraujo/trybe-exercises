@@ -85,3 +85,26 @@ figcaption {
         align-items: center;
     }
 }
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    body {
+        background-color: rgb(175, 206, 2);
+        margin: 15px 25px;
+    }
+    .figure-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    img {
+        width: 290px;
+    }
+    article p {
+        width: 920px;
+        align-items: center;
+        font-size: large;
+    }
+    h1 {
+        font-size: xx-large;
+    }
+}

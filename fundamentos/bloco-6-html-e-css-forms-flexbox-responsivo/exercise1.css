@@ -15,16 +15,25 @@ html {
 
 body {
     font-size: large;
-    margin: 5%;
+    margin: 25px 40px;
 }
 
-article {}
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 h1 {
     font-size: xx-large;
+    display: flex;
+    justify-content: center;
 }
 
-h2 {}
+h2 {
+    display: flex;
+    justify-content: center;
+}
 
 img {
     max-width: 100%;
@@ -57,4 +66,22 @@ figcaption {
     margin: 20px 10px;
 }
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+    body {
+        background-color: blueviolet;
+        font-size: medium;
+        margin: 15px 25px;
+    }
+    .figure-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    img {
+        width: 250px;
+    }
+    article p {
+        width: 520px;
+        align-items: center;
+    }
+}

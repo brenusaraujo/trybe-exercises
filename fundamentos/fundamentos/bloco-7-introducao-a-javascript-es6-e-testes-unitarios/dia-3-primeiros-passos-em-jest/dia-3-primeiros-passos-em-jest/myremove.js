@@ -8,7 +8,4 @@ function myRemove(arr, item) {
   return newArr;
 }
 
-test('retorna o array esperado', () => {
-  expect([1, 2, 3, 4]).toEqual([1, 2, 3, 4]); // equal para array.
-  expect([1, 2, 3, 4]).not.toEqual([1, 2, 3, 4]); // equal para array.
-});
+module.exports = myRemove;

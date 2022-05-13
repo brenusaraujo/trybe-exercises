@@ -19,9 +19,9 @@ const result = (number, random) => {
   return false;
 };
 
-const fuc = (number, result) => {
+const fuc = (number, callback) => {
   const teste = Math.floor(Math.random() * 6);
-  if (result(number, teste)) {
+  if (callback(number, teste)) {
     return `Parabéns, você acertou`
   }
   return `Tente novamente.`
@@ -44,8 +44,8 @@ const checkAnswer = (answer, rights) => {
   return sum;
 }
 
-const test = (RIGHT_ANSWERS, STUDENT_ANSWERS, checkAnswer) => {
-  return `Você fez ${checkAnswer(RIGHT_ANSWERS, STUDENT_ANSWERS)} pontos.`;
+const test = (RIGHT_ANSWERS, STUDENT_ANSWERS, callback) => {
+  return `Você fez ${callback(RIGHT_ANSWERS, STUDENT_ANSWERS)} pontos.`;
 }
 
 console.log(test(RIGHT_ANSWERS, STUDENT_ANSWERS, checkAnswer));

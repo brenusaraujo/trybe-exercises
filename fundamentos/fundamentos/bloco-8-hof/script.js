@@ -28,3 +28,24 @@ const fuc = (number, result) => {
 };
 
 console.log(fuc(2, result));
+
+const RIGHT_ANSWERS = ['A', 'C', 'B', 'D', 'A', 'A', 'D', 'A', 'D', 'C'];
+const STUDENT_ANSWERS = ['A', 'N.A', 'B', 'D', 'A', 'C', 'N.A', 'A', 'D', 'B'];
+
+const checkAnswer = (answer, rights) => {
+  let sum = 0;
+  for (let index = 0; index < answer.length; index += 1) {
+    if (answer[index] !== rights[index]) {
+      sum -= 0.5;
+    } else {
+      sum += 1;
+    }
+  }
+  return sum;
+}
+
+const test = (RIGHT_ANSWERS, STUDENT_ANSWERS, checkAnswer) => {
+  return `Você fez ${checkAnswer(RIGHT_ANSWERS, STUDENT_ANSWERS)} pontos.`;
+}
+
+console.log(test(RIGHT_ANSWERS, STUDENT_ANSWERS, checkAnswer));

@@ -11,3 +11,20 @@ const newEmployees = () => {
 };
 
 console.log(newEmployees());
+
+const result = (number, random) => {
+  if (number === random) {
+    return true
+  }
+  return false;
+};
+
+const fuc = (number, result) => {
+  const teste = Math.floor(Math.random() * 6);
+  if (result(number, teste)) {
+    return `Parabéns, você acertou`
+  }
+  return `Tente novamente.`
+};
+
+console.log(fuc(2, result));

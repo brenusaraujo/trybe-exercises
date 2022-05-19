@@ -105,3 +105,5 @@ rectangles.forEach((rectangle) => {
   rectangleArea(...rectangles) // altere a chamada da funcao rectangleArea
   console.log(rectangle[0] * rectangle[1]);
 });
+
+const soma = (...args) => args.reduce((acc, curr) => acc + curr, 0);

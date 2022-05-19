@@ -51,3 +51,8 @@ const filterPeople = () => people.filter(item => item.nationality === 'Australia
 
 
 console.log(filterPeople());
+
+const myList = [1, 2, 3];
+const swap = ([a, b, c]) => [c, b, a];
+
+// escreva swap abaixo

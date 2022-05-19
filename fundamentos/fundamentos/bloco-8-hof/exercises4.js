@@ -73,18 +73,16 @@ const books = [{
 ];
 
 function reduceNames() {
-  return books.reduce((acc, curr) => acc.concat(curr.author.name), []);
+  return books.reduce((acc, curr) => `${acc}, ${curr.author.name}`, `Os autores são:`);
 }
 console.log(reduceNames());
 
-function averageAge() {
-  return books.reduce((acc, curr) => acc + (curr.releaseYear - curr.author.birthYear), 0) / books.length;
-}
+const averageAge = () => books.reduce(
+  (acc, curr) => acc + (curr.releaseYear - curr.author.birthYear), 0) / books.length;
 console.log(averageAge());
 
 function longestNamedBook() {
-  // const test = books;
-  return books.reduce((biggest, current) => ((current.name.length > biggest) ? current : biggest), 0);
+  return books.reduce((acc, curr) => acc > curr.name.length ? acc : curr.name.length, );
 }
 
 console.log(longestNamedBook());

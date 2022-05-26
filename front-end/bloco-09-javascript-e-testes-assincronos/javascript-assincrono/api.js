@@ -9,7 +9,7 @@ const fetchCoin = async() => {
     .then(response => response.json())
     .then(data => {
       const tenthCoins = data.data.filter(coin => Number(coin.rank) <= 10).sort((a, b) => b.rank - a.rank);
-      const await loop = () => {
+      const loop = () => {
         for (let index = tenthCoins.length - 1; index >= 0; index -= 1) {
           let teste = document.createElement('li');
           teste.innerText = `${tenthCoins[index].name} (${tenthCoins[index].symbol}): ${tenthCoins[index].priceUsd}`;

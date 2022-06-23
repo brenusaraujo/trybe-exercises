@@ -1,6 +1,6 @@
 import React from "react";
 import './App.css';
-
+import Form from "./Form.js";
 
 // function handleClick2() {
 //   console.log( 'Cliclou no botão 2' );
@@ -36,7 +36,9 @@ class App extends React.Component {
 
   render() {
     return (
+      
       <div>
+        <Form />    
         <button onClick = { this.handleClick1 } style={{ backgroundColor: `${this.state.corAtual}`, color: 'white'} }>{this.state.numeroDeCliques} </button>
       </div>
     )

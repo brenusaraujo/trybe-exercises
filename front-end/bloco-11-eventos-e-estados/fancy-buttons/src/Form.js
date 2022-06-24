@@ -22,10 +22,10 @@ class Form extends Component {
  
   handleChange({ target }) {
 
-    const { name, value } = target;
+    const { name } = target;
 
     this.setState({
-      [name]: value,
+      [name]: target.value,
     });
   }
   handleChangeNumber({ target }) {

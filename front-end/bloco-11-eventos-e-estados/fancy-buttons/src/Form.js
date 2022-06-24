@@ -13,33 +13,37 @@ class Form extends Component {
 
     this.state = {
       estadoFavorito: '',
-      idade: 0,
-      nome: '',
-      value: 'cocunut',
+      age: 0,
+      name: '',
+      valor: 'cocunut',
     };
   }
 
  
-  handleChange(event) {
+  handleChange({ target }) {
+
+    const { name, value } = target;
+
     this.setState({
-      estadoFavorito: event.target.value,
-      nome: event.target.value,
+      [name]: value,
     });
   }
-  handleChangeNumber() {
-    this.setState((estadoAnterior, _props) => ({
-      idade: estadoAnterior.idade + 1
-    }));
-  }
-  handleSubmit(event) {
+  handleChangeNumber({ target }) {
+    const { age } = target
     this.setState({
-      value: event.target.value
+      [age]: target.value + 1,
+  });
+  }
+  handleSubmit({ target }) {
+    const { valor } = target
+    this.setState({
+      [valor]: target.value,
     });
-    event.preventDefault();
+    target.preventDefault();
   }
 
   render() {
-    
+    const { age, name, estadoFavorito} = this.state;
     return (
       <div>
         <h1>formulario teste</h1>
@@ -50,9 +54,27 @@ class Form extends Component {
             <option value="coconut">coconut</option>
             <option value="mango">mango</option>
           </select>
-          <input type="number" name="numero" id="teste" value={this.state.idade} onChange={this.handleChangeNumber}/>
-          <input type="text" name="nome" id="nome" value={this.state.nome} onChange={this.handleChange}/>
-          <textarea name="text" id="textarea" cols="30" rows="10" value={this.state.estadoFavorito} onChange={this.handleChange}>
+          <input 
+            type="number" 
+            name="numero" 
+            id="teste" 
+            value={age} 
+            onChange={this.handleChangeNumber}
+          />
+          <input 
+            type="text" 
+            name="name" 
+            id="name" 
+            value={name} 
+            onChange={this.handleChange}
+          />
+          <textarea 
+            name="text" 
+            id="textarea" 
+            cols="30" 
+            rows="10" 
+            value={estadoFavorito} 
+            onChange={this.handleChange}>
 
           </textarea>
         </form>

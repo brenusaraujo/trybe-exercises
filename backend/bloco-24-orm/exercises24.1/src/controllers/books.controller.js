@@ -29,10 +29,20 @@ const insertNewBook = async (req, res) => {
     const { type, response } = await bookService.
       create({ title, author, pageQuantity, createdAt, updatedAt });
     console.log(response);
-    return res.status(201).json({ message: "created"});
+    return res.status(201).json({ message: "created" });
   } catch (error) {
     console.log(error.message);
     return res.status(402).json({ message: "there's an error" });
+  }
+};
+
+const updateBook = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { title, author, pageQuantity, createdAt, updatedAt } = req.body;
+    const response = await bookService.update(Number(id), { title, author, pageQuantity, createdAt, updatedAt })
+  } catch (error) {
+
   }
 };
 

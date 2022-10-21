@@ -1,10 +1,12 @@
 // src/controllers/user.controller.js
 
-const UserService = require('../services/user.service');
+const { userService } = require("../services");
+
+
 
 const getAll = async (_req, res) => {
   try {
-    const users = await UserService.getAll();
+    const users = await userService.getAll();
     return res.status(200).json(users);
   } catch (e) {
     console.log(e.message);

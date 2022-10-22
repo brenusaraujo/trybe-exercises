@@ -38,16 +38,20 @@ const insertNewBook = async (req, res) => {
 
 const updateBook = async (req, res) => {
   try {
-    const { id } = req.params;
     const { title, author, pageQuantity, createdAt, updatedAt } = req.body;
-    const response = await bookService.update(Number(id), { title, author, pageQuantity, createdAt, updatedAt })
+    const { id } = req.params;
+    const response = await bookService.update(Number(id), { title, author, pageQuantity, createdAt, updatedAt });
+    console.log(response);
+    return res.status(201).json({ message: "book updated!" });
   } catch (error) {
-
+    console.log(error.message);
+    return res.status(400).json({ message: "there's an eror" });
   }
 };
 
 module.exports = {
   getAllBooks,
   getBookById,
-  insertNewBook
+  insertNewBook,
+  updateBook
 };

@@ -8,8 +8,7 @@ module.exports = (Sequelize, DataTypes) => {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     age: DataTypes.INTEGER,
-  },
-  {
+  },{
     timestamps: false,
     tableName: 'employees',
     underscored: true,

@@ -25,3 +25,19 @@ export function square(side: number): number {
 export function rectangle(base: number, height: number): number {
   return base * height;
 }
+
+export function diamond(biggerDiagnoal: number, minorDiagnoal: number): number {
+  return (biggerDiagnoal * minorDiagnoal) / 2;
+}
+
+export function trapezoid(
+  biggerBase: number,
+  minorBase: number,
+  height: number
+): number {
+  return ((biggerBase + minorBase) * height) / 2;
+}
+
+export function circleArea(radios: number): number {
+  return Math.PI * radios * radios;
+}

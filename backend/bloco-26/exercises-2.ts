@@ -7,3 +7,10 @@ type bird = {
 function sum(x: number, y: number): number {
   return x + y;
 }
+
+type address = {
+  street: string;
+  number: number;
+  zipCode: number;
+  closeToDowntown: boolean;
+};

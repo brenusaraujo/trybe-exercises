@@ -3,7 +3,7 @@ class Tv {
   size: number;
   resolution: number;
   connections: string;
-  connectedTo: string | undefined;
+  connectedTo?: string | undefined;
   constructor(b: string, s: number, r: number, c: string) {
     this.brand = b;
     this.size = s;
@@ -11,7 +11,7 @@ class Tv {
     this.connections = c;
   }
 
-  public turnOn = () => {
+  public turnOn = ():void => {
     console.log(this.brand);
     console.log(this.size);
     console.log(this.resolution);

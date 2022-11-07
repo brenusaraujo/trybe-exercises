@@ -22,4 +22,21 @@ class Order {
   constructor(p: string) {
     this.payment = p;
   }
+
+  private value = (): number => {
+    const allOrdersPrice = [];
+    allOrdersPrice.push(this.fries.price);
+    return allOrdersPrice.reduce((acc, curr) => acc + curr, 0);
+  };
+
+  public get entireValue(): number {
+    return this.value();
+  }
+
+  public get discountedValue(): number | string {
+    if (this.discount) {
+      return this.value() * this.discount - this.value();
+    }
+    return "discount was not provided";
+  }
 }

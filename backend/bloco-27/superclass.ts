@@ -9,7 +9,9 @@ class Superclass {
 }
 
 class Subclass extends Superclass {
-  // constructor(parameters) {}
+  constructor() {
+    super(false);
+  }
 }
 
 const myFunc = (superclass: Superclass) => {
@@ -18,7 +20,7 @@ const myFunc = (superclass: Superclass) => {
 
 const firstSuperClass = new Superclass(true);
 
-const firstSubClass = new Subclass(false);
+const firstSubClass = new Subclass();
 
 myFunc(firstSubClass);
 myFunc(firstSuperClass);

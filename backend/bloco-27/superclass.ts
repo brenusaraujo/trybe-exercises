@@ -3,7 +3,7 @@ class Superclass {
     isSuper = true;
   }
 
-  public sayHello() {
+  public sayHello(): void {
     console.log("hello world");
   }
 }
@@ -14,7 +14,7 @@ class Subclass extends Superclass {
   }
 }
 
-const myFunc = (superclass: Superclass) => {
+const myFunc = (superclass: Superclass): void => {
   superclass.sayHello();
 };
 

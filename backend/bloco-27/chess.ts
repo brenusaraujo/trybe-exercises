@@ -27,7 +27,6 @@ class ExampleDatabase implements Database {
   constructor(public logger: ConsoleLogger) {}
 
   save(key: string, value: string): void {
-    this.logger.log(key);
-    this.logger.log(value);
+    this.logger.log(`Salvando o valor ${value} na chave ${key}`);
   }
 }

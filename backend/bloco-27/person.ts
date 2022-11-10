@@ -82,3 +82,57 @@ class Student extends Person {
     return this.sumGrades() / this._examsGrades.length;
   }
 }
+
+interface Employee {
+  registration: number;
+  salary: number;
+  admissionDate: Date;
+  generateRegistration(): number;
+}
+
+class Subject {
+  constructor(private _name: string) {
+    this.name = _name;
+  }
+
+  public get name(): string {
+    return this._name;
+  }
+
+  public set name(v: string) {
+    if (v.length < 3) throw new Error(`${v} must be greater than 3.`);
+    this._name = v;
+  }
+}
+
+class Teacher extends Person implements Employee {
+  constructor(name: string, birthDate: Date, salary: number, subject: Subject) {
+    super(name, birthDate);
+    this._salary = salary;
+    this._registration = this.generateRegistration();
+    this._admissionDate = new Date();
+  }
+  _registration: number;
+  _salary: number;
+  _admissionDate: Date;
+  generateRegistration(): number {
+    return Math.random() * 100000;
+  }
+
+  public set salary(v: number) {
+    if (v < 0) throw new Error("salary must not be negative");
+    this._salary = v;
+  }
+
+  public set registration(v: number) {
+    if (v < 100000)
+      throw new Error("registration must be greater than 6 characters");
+    this._registration = v;
+  }
+
+  public set admissionDate(v: Date) {
+    if (v.getDate() > Date.now())
+      throw new Error("the date must not be in the future");
+    this._admissionDate = v;
+  }
+}

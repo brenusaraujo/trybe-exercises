@@ -1,4 +1,4 @@
-class studentEnrolled {
+export default class studentEnrolled {
   enrollment: number;
   name: string;
   examGrade1: number;

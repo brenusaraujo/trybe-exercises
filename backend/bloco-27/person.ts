@@ -1,4 +1,4 @@
-class Person {
+abstract class Person {
   constructor(private _name: string, private _birthDate: Date) {}
   public get name(): string {
     return this._name;
@@ -9,35 +9,17 @@ class Person {
   }
 
   public set name(name: string) {
+    if (name.length < 3) throw new Error(`${name} must be greater than 3`);
     this._name = name;
   }
 
   public set birthDate(birthDate: Date) {
-    this._birthDate = birthDate;
-  }
-
-  /**
-   * validateName
-   */
-  public validateName(value: string): void {
-    if (value.length < 3) throw new Error(`${value} must be greater than 3`);
-  }
-
-  /**
-   * validateDate
-   */
-  public validateDate(date: Date): void {
     const actualDate = new Date().getTime();
-    if (date.getDate() > actualDate)
-      throw new Error(`${date} is not a valid date.`);
-  }
-
-  /**
-   * validateYear
-   */
-  public validateYear(date: Date): void {
-    const year = date.getFullYear();
+    if (birthDate.getDate() > actualDate)
+      throw new Error(`${birthDate} is not a valid date.`);
+    const year = birthDate.getFullYear();
     if (year > 120) throw new Error("is not a valid year.");
+    this._birthDate = birthDate;
   }
 }
 

@@ -34,10 +34,17 @@ abstract class Person {
 class Student extends Person implements Enrollable {
   private _examsGrades: number[] = [];
   private _workGrades: number[] = [];
+  _evaluationsResults: EvaluationResult;
 
-  constructor(name: string, birthDate: Date, enrollment: number) {
+  constructor(
+    name: string,
+    birthDate: Date,
+    enrollment: number,
+    eR: EvaluationResult
+  ) {
     super(name, birthDate);
     enrollment = this.generateEnrollment();
+    this._evaluationsResults = eR;
   }
   generateEnrollment(): number {
     return Math.random() * 100000;
@@ -73,6 +80,10 @@ class Student extends Person implements Enrollable {
 
   public sumAverageGrade(): number {
     return this.sumGrades() / this._examsGrades.length;
+  }
+
+  public evaluationsResults(v: number): void {
+    this._evaluationsResults.score.push(v);
   }
 }
 
@@ -174,13 +185,13 @@ class Evaluation {
 }
 
 class EvaluationResult {
-  constructor(evaluation: Evaluation, score: number) {}
+  constructor(evaluation: Evaluation, score: number[]) {}
 
   public get evaluation(): Evaluation {
     return this.evaluation;
   }
 
-  public get score(): number {
+  public get score(): number[] {
     return this.score;
   }
 
@@ -188,9 +199,9 @@ class EvaluationResult {
     this.evaluation = v;
   }
 
-  public set score(v: number) {
-    if (v < 0) throw new Error("the score must not be negative");
-    if (v > this.evaluation.score)
+  public set score(v: number[]) {
+    if (v.length < 0) throw new Error("the score must not be negative");
+    if (v.length > this.evaluation.score)
       throw new Error(" the score must not be greater than the evaluation");
     this.score = v;
   }

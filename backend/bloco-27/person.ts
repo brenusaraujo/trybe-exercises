@@ -1,3 +1,8 @@
+interface Enrollable {
+  enrollment: number;
+  generateEnrollment(): number;
+}
+
 abstract class Person {
   constructor(private _name: string, private _birthDate: Date) {}
   public get name(): string {
@@ -21,19 +26,25 @@ abstract class Person {
     if (year > 120) throw new Error("is not a valid year.");
     this._birthDate = birthDate;
   }
+  generateRegistration(): number {
+    return Math.random() * 100000;
+  }
 }
 
-class Student extends Person {
-  private _enrollment: number = Math.random() * 10000;
+class Student extends Person implements Enrollable {
   private _examsGrades: number[] = [];
   private _workGrades: number[] = [];
 
-  constructor(name: string, birthDate: Date) {
+  constructor(name: string, birthDate: Date, enrollment: number) {
     super(name, birthDate);
+    enrollment = this.generateEnrollment();
+  }
+  generateEnrollment(): number {
+    return Math.random() * 100000;
   }
 
   public get enrollment(): number {
-    return this._enrollment;
+    return this.enrollment;
   }
   public get examsGrades(): number[] {
     return this._examsGrades;
@@ -43,7 +54,7 @@ class Student extends Person {
   }
   public set enrollment(v: number) {
     if (v < 16) throw new Error("the enrollment must be greater than 16");
-    this._enrollment = v;
+    this.enrollment = v;
   }
   public set examsGrades(v: number[]) {
     if (v.length < 4)
@@ -65,11 +76,20 @@ class Student extends Person {
   }
 }
 
-interface Employee {
-  registration: number;
-  salary: number;
-  admissionDate: Date;
-  generateRegistration(): number;
+class Employee extends Person implements Enrollable {
+  constructor(name: string, birthDate: Date, s: number, registration: number) {
+    super(name, birthDate);
+    // this.enrollment = this.generateEnrollment();
+    registration = this.generateRegistration();
+    this._salary = s;
+    this._admissionDate = new Date();
+  }
+  enrollment: number = this.generateEnrollment();
+  generateEnrollment(): number {
+    return Math.random() * 120000;
+  }
+  _salary: number;
+  _admissionDate: Date;
 }
 
 class Subject {
@@ -87,18 +107,21 @@ class Subject {
   }
 }
 
-class Teacher extends Person implements Employee {
-  constructor(name: string, birthDate: Date, salary: number, subject: Subject) {
-    super(name, birthDate);
-    this._salary = salary;
-    this._registration = this.generateRegistration();
-    this._admissionDate = new Date();
+class Teacher extends Employee {
+  constructor(
+    name: string,
+    birthDate: Date,
+    salary: number,
+    subject: Subject,
+    registration: number
+  ) {
+    super(name, birthDate, salary, registration);
+    this._subject = subject;
   }
-  _registration: number;
-  _salary: number;
-  _admissionDate: Date;
-  generateRegistration(): number {
-    return Math.random() * 100000;
+  _subject: Subject;
+
+  public get subject(): Subject {
+    return this._subject;
   }
 
   public set salary(v: number) {
@@ -109,7 +132,7 @@ class Teacher extends Person implements Employee {
   public set registration(v: number) {
     if (v < 100000)
       throw new Error("registration must be greater than 6 characters");
-    this._registration = v;
+    this.registration = v;
   }
 
   public set admissionDate(v: Date) {

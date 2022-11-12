@@ -172,3 +172,26 @@ class Evaluation {
     }
   }
 }
+
+class EvaluationResult {
+  constructor(evaluation: Evaluation, score: number) {}
+
+  public get evaluation(): Evaluation {
+    return this.evaluation;
+  }
+
+  public get score(): number {
+    return this.score;
+  }
+
+  public set evaluation(v: Evaluation) {
+    this.evaluation = v;
+  }
+
+  public set score(v: number) {
+    if (v < 0) throw new Error("the score must not be negative");
+    if (v > this.evaluation.score)
+      throw new Error(" the score must not be greater than the evaluation");
+    this.score = v;
+  }
+}

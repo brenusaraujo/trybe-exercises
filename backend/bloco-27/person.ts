@@ -141,3 +141,34 @@ class Teacher extends Employee {
     this._admissionDate = v;
   }
 }
+
+class Evaluation {
+  constructor(_score: number, _teacher: Teacher, _type: string) {}
+
+  public get score(): number {
+    return this.score;
+  }
+  public get teacher(): Teacher {
+    return this.teacher;
+  }
+  public get type(): string {
+    return this.type;
+  }
+
+  public set score(v: number) {
+    if (v < 0) throw new Error("the score must not be negative.");
+    this.score = v;
+  }
+
+  public set type(v: string) {
+    if (v === "prova") {
+      if (this.score > 25)
+        throw new Error("the score must not be greater than 25.");
+      this.type = v;
+    } else if (v === "trabalho") {
+      if (this.score > 50)
+        throw new Error("the score must not be greater than 50.");
+      this.type = v;
+    }
+  }
+}

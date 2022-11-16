@@ -1,4 +1,4 @@
-import Plants from "../Plants";
+import Plants from "./plants";
 import PlantsDatabase from "./plantsDatabase";
 
 export default {

@@ -3,8 +3,8 @@ import { IPlant, IOpsInfo, Database } from "../interfaces";
 import fs from "fs/promises";
 
 export default class PlantsDatabase implements Database<IPlant> {
-  private readonly plantsFile = "plantsData.json";
-  private readonly opsFile = "opsInfo.json";
+  private readonly plantsFile = "../plantsData.json";
+  private readonly opsFile = "../opsInfo.json";
 
   constructor() // breed: string, // id: string,
   // needsSun: boolean,

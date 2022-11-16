@@ -11,7 +11,13 @@ const getPlantByIdService = async (id: string): Promise<IPlant | null> => {
   return result;
 };
 
+const deletePlantService = async (id: string): Promise<IPlant | null> => {
+  const result = await plantsModel.deletePlant(id);
+  return result;
+};
+
 export default {
   getPlantsService,
-  getPlantByIdService
+  getPlantByIdService,
+  deletePlantService
 };

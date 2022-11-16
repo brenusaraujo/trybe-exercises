@@ -20,4 +20,9 @@ const getPlantsByID = async (id: string): Promise<IPlant | null> => {
   return plant;
 };
 
-export default { getPlants, getPlantsByID };
+const deletePlant = async (id: string): Promise<IPlant | null> => {
+  const deletedPlant = await plantsDatabase.removePlantById(id);
+  return deletedPlant;
+};
+
+export default { getPlants, getPlantsByID, deletePlant };

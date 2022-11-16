@@ -14,4 +14,4 @@ const getPlants = async () => {
   return allPlants;
 };
 
-export { getPlants };
+export default { getPlants };

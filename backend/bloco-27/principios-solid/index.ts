@@ -1,4 +1,4 @@
-import plantsRouter from "./routers/plants.router";
+import plantsRouter from "./src/routers/plants.router";
 import express from "express";
 
 const app = express();

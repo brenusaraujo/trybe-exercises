@@ -1,19 +1,17 @@
 import { IPlant, IOpsInfo, Database } from "../interfaces";
-import Plants from "./plants";
+// import Plants from "./plants";
 import fs from "fs/promises";
 
-export default class PlantsDatabase extends Plants implements Database<IPlant> {
+export default class PlantsDatabase implements Database<IPlant> {
   private readonly plantsFile = "plantsData.json";
   private readonly opsFile = "opsInfo.json";
 
-  constructor(
-    id: string,
-    breed: string,
-    needsSun: boolean,
-    origin: string,
-    size: number
-  ) {
-    super(id, breed, needsSun, origin, size);
+  constructor() // breed: string, // id: string,
+  // needsSun: boolean,
+  // origin: string,
+  // size: number
+  {
+    // super(id, breed, needsSun, origin, size);
   }
   initPlant(plant: IPlant): IPlant {
     const { id, breed, needsSun, origin, specialCare, size } = plant;

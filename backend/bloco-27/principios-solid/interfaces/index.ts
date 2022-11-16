@@ -1,3 +1,5 @@
 import IPlant from "./plants";
+import IOpsInfo from "./opsinfo";
+import Database from "./database";
 
-export { IPlant };
+export { IPlant, IOpsInfo, Database };

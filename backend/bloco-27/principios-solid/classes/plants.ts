@@ -21,21 +21,6 @@ export default class Plants implements IPlant {
   _size: number;
   specialCare?: { waterFrequency: number } | undefined;
 
-  public set id(v: string) {
-    this._id = v;
-  }
-  public set breed(v: string) {
-    this._breed = v;
-  }
-  public set needsSun(v: boolean) {
-    this._needsSun = v;
-  }
-  public set origin(v: string) {
-    this._origin = v;
-  }
-  public set size(v: number) {
-    this._size = v;
-  }
   public get id(): string {
     return this._id;
   }
@@ -50,5 +35,20 @@ export default class Plants implements IPlant {
   }
   public get size(): number {
     return this._size;
+  }
+  public set id(v: string) {
+    this._id = v;
+  }
+  public set breed(v: string) {
+    this._breed = v;
+  }
+  public set needsSun(v: boolean) {
+    this._needsSun = v;
+  }
+  public set origin(v: string) {
+    this._origin = v;
+  }
+  public set size(v: number) {
+    this._size = v;
   }
 }

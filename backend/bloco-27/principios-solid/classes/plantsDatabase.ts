@@ -1,16 +1,21 @@
-// Plants.ts
-import { IPlant } from "./interfaces";
+import { IPlant, IOpsInfo, Database } from "../interfaces";
+import Plants from "./plants";
 import fs from "fs/promises";
 
-interface IOpsInfo {
-  createdPlants: number;
-}
-
-class Plants {
+export default class PlantsDatabase extends Plants implements Database<IPlant> {
   private readonly plantsFile = "plantsData.json";
   private readonly opsFile = "opsInfo.json";
 
-  public initPlant(plant: IPlant): IPlant {
+  constructor(
+    id: string,
+    breed: string,
+    needsSun: boolean,
+    origin: string,
+    size: number
+  ) {
+    super(id, breed, needsSun, origin, size);
+  }
+  initPlant(plant: IPlant): IPlant {
     const { id, breed, needsSun, origin, specialCare, size } = plant;
     const waterFrequency = needsSun
       ? size * 0.77 + (origin === "Brazil" ? 8 : 7)
@@ -30,14 +35,12 @@ class Plants {
 
     return newPlant;
   }
-
-  // public async getPlants(): Promise<IPlant[]> {
-  //   const plantsRaw = await fs.readFile(this.plantsFile, { encoding: "utf8" });
-  //   const plants: IPlant[] = JSON.parse(plantsRaw);
-  //   return plants;
-  // }
-
-  public async getPlantById(id: string): Promise<IPlant | null> {
+  async getPlants(): Promise<IPlant[]> {
+    const plantsRaw = await fs.readFile(this.plantsFile, { encoding: "utf8" });
+    const plants: IPlant[] = JSON.parse(plantsRaw);
+    return plants;
+  }
+  async getPlantById(id: string): Promise<IPlant | null> {
     const plantsRaw = await fs.readFile(this.plantsFile, { encoding: "utf8" });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
@@ -45,8 +48,7 @@ class Plants {
     if (!plantById) return null;
     return plantById;
   }
-
-  public async removePlantById(id: string): Promise<IPlant | null> {
+  async removePlantById(id: string): Promise<IPlant | null> {
     const plantsRaw = await fs.readFile(this.plantsFile, { encoding: "utf8" });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
@@ -58,8 +60,7 @@ class Plants {
 
     return removedPlant;
   }
-
-  public async getPlantsThatNeedsSunWithId(id: string): Promise<IPlant[]> {
+  async getPlantsThatNeedsSunWithId(id: string): Promise<IPlant[]> {
     const plantsRaw = await fs.readFile(this.plantsFile, { encoding: "utf8" });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
@@ -72,8 +73,7 @@ class Plants {
 
     return filteredPlants;
   }
-
-  public async editPlant(plantId: string, newPlant: IPlant): Promise<IPlant> {
+  async editPlant(plantId: string, newPlant: IPlant): Promise<IPlant> {
     const plantsRaw = await fs.readFile(this.plantsFile, { encoding: "utf8" });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
@@ -85,8 +85,7 @@ class Plants {
     await fs.writeFile(this.plantsFile, JSON.stringify(updatedPlants));
     return newPlant;
   }
-
-  public async savePlant(plant: IPlant): Promise<IPlant> {
+  async savePlant(plant: IPlant): Promise<IPlant> {
     const plantsRaw = await fs.readFile(this.plantsFile, { encoding: "utf8" });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
@@ -102,5 +101,3 @@ class Plants {
     return newPlant;
   }
 }
-
-export default Plants;

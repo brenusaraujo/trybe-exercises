@@ -1,4 +1,4 @@
 db.movies.updateOne(
-  { title: "Batman" },
-  { $rename: { budget: "estimatedBudget" } },
+  { title: "Home Alone" },
+  { $min: { budget: 5 } },
 );

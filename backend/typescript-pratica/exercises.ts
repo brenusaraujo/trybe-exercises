@@ -37,3 +37,7 @@ export function getTrapezoidArea(
 ): number {
   return ((SBase + BBase) * height) / 2;
 }
+
+export function getCircleArea(radio: number): number {
+  return Math.PI * radio * radio;
+}

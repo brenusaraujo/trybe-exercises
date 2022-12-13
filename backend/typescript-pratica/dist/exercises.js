@@ -1,7 +1,7 @@
 "use strict";
 // ./exercises.ts
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getLosangleArea = exports.triangleCheck = exports.getPolygonPerimeter = exports.getTriangleArea = exports.getRectangleArea = exports.getSquareArea = void 0;
+exports.getCircleArea = exports.getTrapezoidArea = exports.getLosangleArea = exports.triangleCheck = exports.getPolygonPerimeter = exports.getTriangleArea = exports.getRectangleArea = exports.getSquareArea = void 0;
 function getSquareArea(side) {
     return side ** 2;
 }
@@ -29,3 +29,11 @@ function getLosangleArea(BiggerDiagonal, SmallestDiagnoal) {
     return (BiggerDiagonal * SmallestDiagnoal) / 2;
 }
 exports.getLosangleArea = getLosangleArea;
+function getTrapezoidArea(SBase, BBase, height) {
+    return ((SBase + BBase) * height) / 2;
+}
+exports.getTrapezoidArea = getTrapezoidArea;
+function getCircleArea(radio) {
+    return Math.PI * radio * radio;
+}
+exports.getCircleArea = getCircleArea;

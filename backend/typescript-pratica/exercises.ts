@@ -22,3 +22,18 @@ export function triangleCheck(
   const checkSideC = sideA - sideB < sideC && sideC < sideA + sideB;
   return checkSideA && checkSideB && checkSideC;
 }
+
+export function getLosangleArea(
+  BiggerDiagonal: number,
+  SmallestDiagnoal: number
+): number {
+  return (BiggerDiagonal * SmallestDiagnoal) / 2;
+}
+
+export function getTrapezoidArea(
+  SBase: number,
+  BBase: number,
+  height: number
+): number {
+  return ((SBase + BBase) * height) / 2;
+}
